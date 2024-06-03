@@ -51,8 +51,8 @@ return ()=>{
       {/* <Link to="/"> */}
       <li><a href="/courses">Course</a></li>
       {/* </Link> */}
-
-      <li><a>Contact</a></li>
+        
+      <li><Link to="/contact">Contact </Link></li>
       <li><a>About us</a></li>
       </ul>
     </div>
@@ -61,9 +61,9 @@ return ()=>{
   <div className='navbar-end space-x-3'>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
-      <li><a>Home</a></li>
+      <li><a href="/">Home</a></li>
       <li><a href="/courses">Course</a></li>
-      <li><a>Contact</a></li>
+      <li><a href="/contact">Contact</a></li>
       <li><a>About us</a></li>
     </ul>
   </div>
