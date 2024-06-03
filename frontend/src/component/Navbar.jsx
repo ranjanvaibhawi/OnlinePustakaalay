@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import Login from './Login'
 const Navbar = () => {
   const [sticky,setSticky]=useState(false)
   const [theme, setTheme] = useState(
@@ -45,10 +46,11 @@ return ()=>{
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
       </div>
       <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-      <li><a>Home</a></li>
-      <Link to="/">
-      <li>Course</li>
-      </Link>
+      <li><Link>Home</Link>
+      </li>
+      {/* <Link to="/"> */}
+      <li><a href="/courses">Course</a></li>
+      {/* </Link> */}
 
       <li><a>Contact</a></li>
       <li><a>About us</a></li>
@@ -87,9 +89,17 @@ return ()=>{
 
 
 
-  <div >
-    <a className="bg-black text-white px-3 py-2 rounded-md hover:bg-slate-800 duration-300 cursor-pointer">Login</a>
-  </div>
+<div className="">
+                <a
+                  className="bg-black text-white px-3 py-2 rounded-md hover:bg-slate-800 duration-300 cursor-pointer"
+                  onClick={() =>
+                    document.getElementById("my_modal_2").showModal()
+                  }
+                >
+                  Login
+                </a>
+                <Login />
+              </div>
 </div>
 </div>
     </div>
