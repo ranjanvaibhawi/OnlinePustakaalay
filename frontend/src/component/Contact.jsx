@@ -15,7 +15,7 @@ function Contact() {
     <div className='flex h-screen justify-center items-center '>
     <div  className="w-[600px]">
     {/* border shadow-md  p-5 rounded-md */}
-    <div className="modal-box dark:bg-neutral-content">
+    <div className="modal-box  dark:bg-neutral-content">
   <form method="dialog" className="modal-backdrop" onSubmit={handleSubmit(onSubmit)}>
   {/* <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button> */}
     <h3 className="font-bold text-2xl text-center text-slate-700">Contact Us</h3>

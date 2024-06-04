@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import{ useAuth} from '../context/AuthProvider'
 import Login from './Login'
+import Logout from './Logout'
 const Navbar = () => {
+  const [authUser,setAuthUser]=useAuth()
   const [sticky,setSticky]=useState(false)
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
   );
+  
   const element = document.documentElement;
   useEffect(() => {
     if (theme === "dark") {
@@ -46,7 +50,7 @@ return ()=>{
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
       </div>
       <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-      <li><Link>Home</Link>
+      <li><Link to="/" >Home</Link>
       </li>
       {/* <Link to="/"> */}
       <li><a href="/courses">Course</a></li>
@@ -87,9 +91,9 @@ return ()=>{
   
 </label>
 
-
-
-<div className="">
+{
+  authUser?<Logout/>:(
+    <div className="">
                 <a
                   className="bg-black text-white px-3 py-2 rounded-md hover:bg-slate-800 duration-300 cursor-pointer"
                   onClick={() =>
@@ -100,6 +104,10 @@ return ()=>{
                 </a>
                 <Login />
               </div>
+  )
+}
+
+
 </div>
 </div>
     </div>

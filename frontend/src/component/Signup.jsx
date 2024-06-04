@@ -27,11 +27,17 @@ await axios
   if(res.data){
    toast.success("Sign-up Successfully")
   }
-  localStorage.setItem("Users",JSON.stringify(res.data.user))  ///saves data in browsers local storage  ,.user isliye kara so that message does not cme
+  setTimeout(()=>{
+    localStorage.setItem("Users",JSON.stringify(res.data.user))  ///saves data in browsers local storage  ,.user isliye kara so that message does not cme
+    window.location.reload()
+  },800)
+  
 }).catch((err)=>{
  if(err.response){
   console.log(err)
   toast.error("Error:"+err.response.data.message)
+  setTimeout(()=>{
+  },800)
  }
 })
   }

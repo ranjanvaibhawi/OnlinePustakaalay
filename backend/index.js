@@ -16,10 +16,12 @@ const PORT=process.env.port || 4000
 
 const URL=process.env.MongoURL
 try {
-    mongoose.connect(URL, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    });
+    mongoose.connect(URL
+    //     , {
+    //     useNewUrlParser: true,
+    //     useUnifiedTopology: true,
+    // }
+);
     console.log("Connected to mongoDB");
 } catch (error) {
     console.log("Error: ", error);
