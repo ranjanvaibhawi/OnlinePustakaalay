@@ -1,7 +1,7 @@
 import React from 'react'
 import { useForm } from "react-hook-form"
-
-
+import axios from "axios"
+import toast from 'react-hot-toast'
   
 function Login() {
   const {
@@ -11,7 +11,29 @@ function Login() {
     formState: { errors },
   } = useForm()
 
-  const onSubmit = (data) => console.log(data)
+  const onSubmit =async (data) =>{
+    const userInfo={
+      //fullname:data.fullname,
+      email:data.email,
+      password:data.password
+      
+    
+    }
+    await axios
+    .post("http://localhost:4001/user/login",userInfo)
+    .then((res)=>{
+      console.log(res.data)
+      if(res.data){
+        toast.success("Login Successfully")
+      }
+      localStorage.setItem("Users",JSON.stringify(res.data.user))  ///saves data in browsers local storage  ,.user isliye kara so that message does not cme
+    }).catch((err)=>{
+     if(err.response){
+      console.log(err)
+      toast.error("Error:"+err.response.data.message)
+     }
+    })
+  }
   return (
     <div>
 
