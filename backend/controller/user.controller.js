@@ -1,5 +1,6 @@
 import User from "../model/user.model.js"
 import bcryptjs from "bcryptjs"
+import { sendMail } from "../helpers/mail.js"
 export const signup=async(req,res)=>{
     try{
         const {fullname,email,password}=req.body
@@ -15,6 +16,8 @@ export const signup=async(req,res)=>{
             password: hashPassword,
         });
         await createdUser.save()  //gets saved in User collection
+        sendMail(createdUser.email,"Welcome to OP! ", `Hellooooo ${fullname} This is Online Pustakaalay , MNNIT's library on your fingertips!  
+         We wish you Happy learning`)
         res.status(201).json({message:"User created succesfully",user:{
             _id:createdUser._id,
             fullname:createdUser.fullname,
