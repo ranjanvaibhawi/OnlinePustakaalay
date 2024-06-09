@@ -57,7 +57,7 @@ return ()=>{
       {/* </Link> */}
         
       <li><Link to="/contact">Contact </Link></li>
-      <li><a>About us</a></li>
+      <li><Link to="/about">About us</Link></li>
       </ul>
     </div>
     <a className="cursor-pointer font-bold text-2xl">OnlinePustakaalay</a>
@@ -68,7 +68,7 @@ return ()=>{
       <li><a href="/">Home</a></li>
       <li><a href="/courses">Course</a></li>
       <li><a href="/contact">Contact</a></li>
-      <li><a>About us</a></li>
+      <li><a href="/about">About us</a></li>
     </ul>
   </div>
   <div className='hidden md:block'>
