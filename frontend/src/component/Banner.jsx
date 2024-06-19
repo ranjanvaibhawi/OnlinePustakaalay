@@ -1,15 +1,23 @@
 import React from 'react'
 import Book from '../../../images/book.jpg'
 import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+ 
 const Banner = () => {
   const navigate=useNavigate()
  
 
   const handleButtonClick = async () => {
-  
-   navigate('signup')
+    let login=localStorage.getItem('Users')
+    console.log(login)
+   if(!login){
+    navigate('signup')
+   
+   } 
+   else{
+    navigate('courses')
+   }
   }
+  
   
   
 

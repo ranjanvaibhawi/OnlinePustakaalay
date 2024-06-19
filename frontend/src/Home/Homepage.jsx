@@ -7,7 +7,7 @@ function Homepage() {
   return (
     <>
     <Navbar/>
-    <Banner/>
+    <Banner />
     <Freebook/>
     <Footer/>
     </>
