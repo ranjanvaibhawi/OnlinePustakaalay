@@ -1,5 +1,5 @@
 import express from "express" //for routes
-import { getBook } from "../controller/book.controller.js"
+import { getBook,addbooks,getbookbyuser,buybooks,mybooks,getbookbyid} from "../controller/book.controller.js"
 const router=express.Router()
 
 
@@ -7,8 +7,13 @@ const router=express.Router()
 
 
 //this is a api created
-router.get('/',getBook)   //since its get req thus get in axios (coursejsx)
-export default router   
+router.get('/',getBook) 
+router.post('/addbook/:userId',addbooks)
+router.post('/buybook/:id/:userId',buybooks)
+router.get('/getbooks/:userId',getbookbyuser)
+router.get('/mybooks/:userId',mybooks)
+router.get('/getabookbyid/:id',getbookbyid)
+export default router
 
 //exported to index.js
 

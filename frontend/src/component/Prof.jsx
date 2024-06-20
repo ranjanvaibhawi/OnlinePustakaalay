@@ -4,7 +4,7 @@ import axios from 'axios'
 import toast from 'react-hot-toast'
 import Cards from './Cards'
 import { useState,useEffect } from 'react'
-function Prof() {
+function Prof(authUser) {
     const storedUserData = localStorage.getItem('Users')
     const {
         register,
@@ -42,18 +42,18 @@ function Prof() {
         })
           }
           const [book,setBook]=useState([])
-          useEffect(()=>{
-            const getBook=async()=>{
-            try{
-              const res=await axios.get("http://localhost:4001/book")
-              console.log(res.data)
-              setBook(res.data)
-            }catch(error){
-              console.log(error)
-            }
-            }
-            getBook();
-          },[])
+          useEffect(() => {
+            const getMyBooks = async () => {
+              try {
+                const response = await axios.get(`http://localhost:4001/book/mybooks/${userData._id}`);
+                console.log('My Books:', response.data);
+                setBook(response.data);
+              } catch (error) {
+                console.error('Error fetching my books:', error);
+              }
+            };
+            getMyBooks();
+          }, [userData._id]);
      
   return (
     <>
@@ -104,7 +104,7 @@ function Prof() {
                         
                         <div className='mt-5 grid grid-cols-1 md:grid-cols-3 px-2 py-2'>
                         {book.map((item)=>(
-                            <Cards key ={item.id} item={item}/>
+                            <Cards key ={item.id} item={item} authUser={authUser}/>
                         ))}
                         </div>
                         

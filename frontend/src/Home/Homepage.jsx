@@ -3,12 +3,12 @@ import Navbar from '../component/Navbar'
 import Footer from '../component/Footer'
 import Freebook from '../component/Freebook'
 import Banner from '../component/Banner'
-function Homepage() {
+function Homepage(authUser) {
   return (
     <>
     <Navbar/>
     <Banner />
-    <Freebook/>
+    <Freebook authUser={authUser} />
     <Footer/>
     </>
   )
