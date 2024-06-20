@@ -5,7 +5,7 @@ import Slider from "react-slick";
  
 import Cards from './Cards';
 import axios from 'axios';
-const Freebook = () => {
+const Freebook = (authUser) => {
   const [book,setBook]=useState([])
   useEffect(()=>{
     const getBook=async()=>{
@@ -70,7 +70,7 @@ const Freebook = () => {
     <div className="slider-container">
       <Slider {...settings}>
         {book.map((item)=>(
-          <Cards item={item} key={item.id}/>
+          <Cards item={item} key={item.id} authUser={authUser}/>
         ))}
       </Slider>
     </div>

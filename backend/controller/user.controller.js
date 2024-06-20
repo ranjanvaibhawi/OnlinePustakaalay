@@ -49,3 +49,16 @@ export const login=async(req,res)=>{
         return res.status(500).json({message:"internal server error"})
     }
 }
+
+export const getUser=async(req,res)=>{
+    const userId=req.params.id
+    try{
+        const user = await User.findById(userId)
+        res.status(200).json(user)
+    }
+    catch(e){
+        console.log(e)
+    }
+}
+
+//goes to route

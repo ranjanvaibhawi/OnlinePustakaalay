@@ -13,8 +13,13 @@ const userSchema=mongoose.Schema({
     password:{
         type:String,
         required:true,
+    },
+    myauthorisedbooks:{
+        type:[mongoose.ObjectId]
+    },
+    mybooks:{
+        type:[mongoose.ObjectId]
     }
-
 })
 const User=mongoose.model("User",userSchema)
 export default User
