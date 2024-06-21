@@ -75,7 +75,7 @@ return ()=>{
       <li><a href="/courses">Course</a></li>
       <li><a href="/contact">Contact</a></li>
       <li><a href="/about">About us </a></li>
-     <li><Link to="/addbook">Add Book</Link></li>
+    { authUser?<li><Link to="/addbook">Add Book</Link></li>:null}
     </ul>
     <div className='mt-2'>
     <div className='hover:bg-slate-700 rounded-lg'>
