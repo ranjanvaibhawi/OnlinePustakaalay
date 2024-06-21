@@ -41,19 +41,19 @@ function Prof(authUser) {
          }
         })
           }
-          // const [book,setBook]=useState([])
-          // useEffect(() => {
-          //   const getMyBooks = async () => {
-          //     try {
-          //       const response = await axios.get(`http://localhost:4001/book/mybooks/${userData._id}`);
-          //       console.log('My Books:', response.data);
-          //       setBook(response.data);
-          //     } catch (error) {
-          //       console.error('Error fetching my books:', error);
-          //     }
-          //   };
-          //   getMyBooks();
-          // }, [userData._id]);
+          const [book,setBook]=useState([])
+          useEffect(() => {
+            const getMyBooks = async () => {
+              try {
+                const response = await axios.get(`http://localhost:4001/book/mybooks/${userData._id}`);
+                console.log('My Books:', response.data);
+                setBook(response.data);
+              } catch (error) {
+                console.error('Error fetching my books:', error);
+              }
+            };
+            getMyBooks();
+          }, [userData._id]);
      
   return (
     <>
@@ -107,9 +107,9 @@ function Prof(authUser) {
                         <span className='text-xl md:text-2xl text-pink-500'>Past Purchases:</span>
                         
                         <div className='mt-5 grid grid-cols-1 md:grid-cols-3 px-2 py-2'>
-                        {/* {book.map((item)=>(
+                        {book.map((item)=>(
                             <Cards key ={item.id} item={item} authUser={authUser}/>
-                        ))} */}
+                        ))}
                         </div>
                         
                     </div>
