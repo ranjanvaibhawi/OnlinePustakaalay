@@ -3,12 +3,17 @@ import { Link } from 'react-router-dom'
 import{ useAuth} from '../context/AuthProvider'
 import Login from './Login'
 import Logout from './Logout'
+import Searchcomp from './Searchcomp'
+import { IoIosAdd } from "react-icons/io";
+// import Searchlist from './Searchlist.jsx'
+import Searchlist from './Searchlist'
 const Navbar = () => {
   const [authUser,setAuthUser]=useAuth()
   const [sticky,setSticky]=useState(false)
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
   );
+  const [results,setResults]=useState([])
   const storedUserData = localStorage.getItem('Users')
   const userData = JSON.parse(storedUserData)
   const element = document.documentElement;
@@ -69,14 +74,28 @@ return ()=>{
       <li><a href="/">Home</a></li>
       <li><a href="/courses">Course</a></li>
       <li><a href="/contact">Contact</a></li>
-      <li><a href="/about">About us</a></li>
+      <li><a href="/about">About us </a></li>
+     <li><Link to="/addbook">Add Book</Link></li>
     </ul>
+    <div className='mt-2'>
+    <div className='hover:bg-slate-700 rounded-lg'>
+    
+    </div>
+    </div>
+    
   </div>
   <div className='hidden md:block'>
-  <label className="px-3 py-1 border rounded-md flex items-center gap-2 ">
-  <input type="text" className="grow outline-none dark:bg-slate-900 dark:text-white" placeholder="Search" />
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4 opacity-70"><path fillRule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clipRule="evenodd" /></svg>
-</label></div>
+  {/* <label className="px-3 py-1 border rounded-md flex items-center gap-2 ">
+  <input type="text" className="grow outline-none dark:bg-slate-900 dark:text-white" placeholder="Search" />  */}
+  <div className="dropdown dropdown-bottom dropdown-end flex">
+  <Searchcomp setResults={setResults} />
+  {results && results.length > 0 && <Searchlist results={results} />}
+  </div>
+  {/* <Searchlist results={results}/> */}
+  {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4 opacity-70"><path fillRule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clipRule="evenodd" /></svg>
+</label> */}
+
+</div>
 
 <label className="swap swap-rotate">
   

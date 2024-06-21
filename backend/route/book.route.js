@@ -1,5 +1,6 @@
 import express from "express" //for routes
 import { getBook,addbooks,getbookbyuser,buybooks,mybooks,getbookbyid} from "../controller/book.controller.js"
+import Book from "../model/book.model.js"
 const router=express.Router()
 
 

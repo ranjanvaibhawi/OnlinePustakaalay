@@ -5,6 +5,6 @@ const router=express.Router()
 
 
 //post
-router.post("/changepassword",signup)
+router.post("/changepassword",changepassword)
 // router.post("/login",login)
 export default router
