@@ -13,6 +13,8 @@ const Pdf = () => {
   return (
     <div className="pdf-container">
       <h1 className="pdf-heading">Here's Your Book! Happy Reading!!</h1>
+      <span style={{ color: 'red', fontSize: '0.8rem' }}>Note: A issued book can be read till 24hrs of its active issue</span> 
+
       <div className="pdf-iframe-container">
         <iframe
           src={bookLink}

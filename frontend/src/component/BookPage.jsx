@@ -42,7 +42,7 @@ const BookPage = () => {
   const handleBuyBook = async (bookId) => {
     try {
       const response = await axios.post(`http://localhost:4001/book/buybook/${bookId}/${authordetails._id}`);
-      console.log('Book bought:', response.status);
+      // console.log('Book bought:', response.status);
       alert('Book bought successfully');
       
       navigate('/pdf', { state: { bookLink } });
@@ -84,7 +84,8 @@ const BookPage = () => {
               onClick={() => handleBuyBook(book._id)}>
               Issue
             </button>
-            <span style={{ color: 'red', fontSize: '0.8rem' }}>Note: A issued book can be read till 24hrs of its active issue</span>          </div>
+            <span style={{ color: 'red', fontSize: '0.8rem' }}>Note: A issued book can be read till 24hrs of its active issue</span> 
+                     </div>
         </div>
       </div>
     </div>
