@@ -57,7 +57,7 @@ export const buybooks = async(req,res)=>{
           const userr = await User.findById(userId);
           if (userr.mybooks.includes(bookId)) {
                return res.status(400).json({ message: 'Book already bought' });
-             }
+          }
           const user = await User.findByIdAndUpdate(
                userId,
                { $push: { mybooks: bookId } },
