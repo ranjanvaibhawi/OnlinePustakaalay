@@ -26,7 +26,7 @@ const App = () => {
         <Route path="/contact" element={<Contactpage />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/profile" element={authUser ? <Profile /> : <Navigate to="/signup" />} />
-        <Route path="/bookpage/:id" element={<BookPage />} />
+        <Route path="/bookpage/:id" element={<BookPage authUser={authUser}/>} />
         <Route path="/addbook" element={authUser ? <AddBook authUser={authUser} /> : <Navigate to="/signup" />} />
         <Route path="/pdf" element={<Pdf />} />
       </Routes>
