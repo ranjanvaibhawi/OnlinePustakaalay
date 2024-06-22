@@ -51,10 +51,12 @@ export const getbookbyuser = async(req,res)=>{
 export const buybooks = async(req,res)=>{
      const userId = req.params.userId;
      const bookId = req.params.id;
+     console.log(req.params)
      console.log(userId);
      console.log(bookId)
      try{
           const userr = await User.findById(userId);
+          console.log(userr)
           if (userr.mybooks.includes(bookId)) {
                return res.status(400).json({ message: 'Book already bought' });
           }
@@ -66,8 +68,6 @@ export const buybooks = async(req,res)=>{
           console.log(user)
           res.status(200).json({user})
 
-
-///////remove issued book 
           setTimeout(async () => {
                await User.findByIdAndUpdate(
                  userId,
@@ -75,9 +75,6 @@ export const buybooks = async(req,res)=>{
                );
                console.log(`Book ${bookId} removed from user ${userId}'s mybooks after 24 hours.`);
              }, 24 * 60 * 60 * 1000); // 24 hours in milliseconds
-
-
-
      }
      catch(e){ 
           console.log(e);
