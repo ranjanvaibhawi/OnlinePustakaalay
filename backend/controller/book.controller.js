@@ -65,6 +65,19 @@ export const buybooks = async(req,res)=>{
           );
           console.log(user)
           res.status(200).json({user})
+
+
+///////remove issued book 
+          setTimeout(async () => {
+               await User.findByIdAndUpdate(
+                 userId,
+                 { $pull: { mybooks: bookId } }
+               );
+               console.log(`Book ${bookId} removed from user ${userId}'s mybooks after 24 hours.`);
+             }, 24 * 60 * 60 * 1000); // 24 hours in milliseconds
+
+
+
      }
      catch(e){ 
           console.log(e);
