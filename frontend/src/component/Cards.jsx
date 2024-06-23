@@ -17,7 +17,7 @@ const Cards = ({item,authUser}) => {
     <    >
     <div className='mt-2 my-3 p-3'   onClick={handleClick}   style={{ cursor: 'pointer' }}>
     <div className="card w-96 bg-base-100 shadow-xl scale-90 hover:scale-95 dark:bg-slate-900 dark:text-white dark:border">
-  <figure><img src={image} alt="Shoes" /></figure>
+  <figure><img src={item.image} alt="Shoes" /></figure>
   <div className="card-body">
     <h2 className="card-title">
       {item.name}

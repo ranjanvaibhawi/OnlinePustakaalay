@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom'; // Import useNavigate
- 
+import toast from 'react-hot-toast'
 const BookPage = (authUser) => {
   console.log(authUser.authUser._id)
   const navigate = useNavigate(); // Initialize useNavigate hook
@@ -44,16 +44,17 @@ const BookPage = (authUser) => {
     try {
       const response = await axios.post(`http://localhost:4001/book/buybook/${bookId}/${authUser.authUser._id}`);
       // console.log('Book bought:', response.status);
-      alert('Book bought successfully');
       
-      navigate('/pdf', { state: { bookLink } });
+      toast.success('Book bought successfully')
+      navigate('/pdf', { state: { bookLink } }); 
 
 
     } catch (error) {
       if (error.response.status === 400) {
         navigate('/pdf', { state: { bookLink } });
         console.log(error)
-        alert('You have already bought this book');
+        toast.error('You have already bought this book')
+        // alert('You have already bought this book');
       } else {
         console.error('Error buying book:', error.response.status);
       }
