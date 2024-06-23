@@ -5,7 +5,7 @@ import cors from "cors"
 
 import bookRoute from "./route/book.route.js"
 import userRoute from "./route/user.route.js"
-import changepass from './route/change.password.js'
+
 const app=express()  //app se hi request aati jaati hai 
 app.use(cors()) //to connect to backend
 app.use(express.json()) //post request ke liye json 
@@ -28,7 +28,7 @@ try {
 //a api request ,goes to route.js which then goes to controller
 app.use("/book",bookRoute)
 app.use("/user",userRoute)  //these are api endpoints
-app.use("/change",changepass)
+
 
 
 

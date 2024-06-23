@@ -17,7 +17,11 @@ const Cards = ({item,authUser}) => {
     <    >
     <div className='mt-2 my-3 p-3'   onClick={handleClick}   style={{ cursor: 'pointer' }}>
     <div className="card w-96 bg-base-100 shadow-xl scale-90 hover:scale-95 dark:bg-slate-900 dark:text-white dark:border">
-  <figure><img src={item.image} alt="Shoes" /></figure>
+  <figure>
+  {/* <img src="https://postimg.cc/8JmrXJDP" alt="Shoes" /> */}
+  <img src={item.image} border='0' alt='image' width="100" height="100"/>
+  </figure>
+  {/* https://drive.google.com/file/d/1Uo0zNZRuByIHGNhn3xakfXpKHudYaMeh/view?usp=sharing */}
   <div className="card-body">
     <h2 className="card-title">
       {item.name}

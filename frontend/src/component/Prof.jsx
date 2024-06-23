@@ -84,24 +84,7 @@ function Prof(authUser) {
                     <br/>
                     <br/>
                     <br/>
-                    <br/>
-                    <span className='text-pink-500 text-xl md:text-2xl'>Change password :             </span>
-                    <form  onSubmit={handleSubmit(onSubmit)}>
-                    <br/>
-                    <span className='ml-8'>Enter new password :</span>
-                    <br/>
-                    <br/>
-                   
-                    <input type="text"
-                        placeholder='Enter your password'
-                        className='w-80 px-3 py-1 border rounded-md outline:none ml-8'
-                        {...register("password", { required: true })}
-                    />
-                    <br/>
-                    <button className=' ml-8 bg-pink-500 text-white px-2 py-1 mt-4 rounded-md hover:bg-pink-600 duration-200' type="submit">Change Password</button>
-                    </form>
-                    <br/>
-                    <br/>
+                  
                     </div>
                     <div>
                         <span className='text-xl md:text-2xl text-pink-500'>Past Purchases:</span>
